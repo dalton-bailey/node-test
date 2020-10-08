@@ -9,6 +9,6 @@ app.createServer(function (req, res) {
 
 app.set('view engine', 'pug')
 
-app.get('/', function (req, res) {
+app.get('views', function (req, res) {
     res.render('index', { title: 'Hey', message: 'Hello there!' })
   })
