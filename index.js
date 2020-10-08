@@ -1,15 +1,19 @@
 var express = require("express");
+const path = require('path')
 var app = express();
 
 const port = process.env.PORT || 3000
 
-app.createServer(function (req, res) {
-    res.writeHead(200, {"Content-Type": "text/plain"})
-    res.end("Hello World!")
-}).listen(port)
+app.set('views', path.join(__dirname, 'views'))
+app.set('view engine', 'pug')
 
-// app.set('view engine', 'pug')
+app.get('/', function (req, res) {
+    res.render('index', { title: 'Hey', message: 'Hello there!' })
+  })
 
-// app.get('views', function (req, res) {
-//     res.render('index', { title: 'Hey', message: 'Hello there!' })
-//   })
+
+
+app.listen(port, () => {
+ console.log("Server running on port 3000");
+});
+
