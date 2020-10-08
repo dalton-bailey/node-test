@@ -1,4 +1,6 @@
-var app = require('app')
+var express = require("express");
+var app = express();
+
 
 app.createServer(function (req, res) {
     res.writeHead(200, {"Content-Type": "text/plain"})
